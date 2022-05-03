@@ -6,38 +6,38 @@
 function main(expressions) {
   // untuk tiap ekspresi matematis, hitung hasilnya, lalu cetak ke layar
   for (const expression of expressions) {
-    console.log(`${expression} = ${solve(expression)}`)
+    console.log(`${expression} = ${kalkulator(expression)}`)
   }
 } 
 
-function solve(expression) {
+function kalkulator(input) {
   // bersihkan spasi dalam ekspresi
-  expression = expression.replace(/ /g, '');
+  input = input.replace(/ /g, '');
   
   // cek posisi operator
-  const match = /[\+\-\*\/]/.exec(expression);
+  const match = /[\+\-\*\/]/.exec(input);
   
   if (match) {
     // jika operator ditemukan, baca angka pada kedua sisi
-    let a = parseFloat(expression.slice(0, match.index))
-    let b = parseFloat(expression.slice(match.index+1))
+    let a = parseFloat(input.slice(0, match.index))
+    let b = parseFloat(input.slice(match.index+1))
 
     // lalu hitung hasil ekspresi berdasarkan operator
-    switch (expression[match.index]) {
+    switch (input[match.index]) {
       case '+':
-        return a + b
+        return Math.round(a + b)
       case '-':
-        return a - b
+        return Math.round(a - b)
       case '*':
-        return a * b
+        return Math.round(a * b)
       case '/':
-        return a / b
+        return Math.round(a / b)
       default:
         return null
     }
   } else {
     // jika tidak ada operator, langsung baca ekspresi sebagai satu angka
-    return parseFloat(expression)
+    return Math.round(parseFloat(input))
   }
 
 }
