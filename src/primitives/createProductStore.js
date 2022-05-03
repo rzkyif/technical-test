@@ -39,7 +39,7 @@ const TEST_DATA = {
     description: 'A commonly used storage and source of electricity'
   }
 }
-const TEST_NEXT = 100
+const TEST_NEXT = 10
 
 export default function createProductStore() {
   const [state, setState] = createSignal({})
