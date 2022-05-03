@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "astro build && cd dist && echo $null >> \"./.nojekyll\" && git init && git add -A && git commit -m \"deploy\" && git push -f https://github.com/rzkyif/technical-test.git master:gh-pages",
     "test:sorter": "node ./scripts/generator.js ./scripts/data/produk_1000.csv && node ./scripts/sorter.js ./scripts/data/produk.csv && node ./scripts/sorter.js ./scripts/data/produk_1000.csv",
     "test:kalkulator": "node ./scripts/kalkulator.js \"13 + 187\" \"134 -11\" \"8* 7\" \"16/4\""
   },
